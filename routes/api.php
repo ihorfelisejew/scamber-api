@@ -1,8 +1,11 @@
 <?php
 
-use App\Http\Controllers\CarController;
+use App\Http\Controllers\CarShowroomController;
+use App\Http\Controllers\OrderController;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Route;
+use Illuminate\Support\Facades\Mail;
+use Illuminate\Support\Facades\Log;
 
 /*
 |--------------------------------------------------------------------------
@@ -15,12 +18,6 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
-Route::middleware('auth:sanctum')->get('/user', function (Request $request) {
-    return $request->user();
-});
+Route::get('/car-showroom', [CarShowroomController::class, 'getShowroomsCities']);
 
-Route::get('/cars', [CarController::class, 'index']);
-Route::get('/cars/{id}', [CarController::class, 'show']);
-Route::post('/cars', [CarController::class, 'store']);
-Route::put('/cars/{id}', [CarController::class, 'update']);
-Route::delete('/cars/{id}', [CarController::class, 'destroy']);
+Route::post('/send-order', [OrderController::class, 'store']);
