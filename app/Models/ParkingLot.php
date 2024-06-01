@@ -7,25 +7,20 @@ use Illuminate\Database\Eloquent\Model;
 
 class ParkingLot extends Model
 {
-    use HasFactory;
-
-    protected $table = 'ParkingLots';
     protected $primaryKey = 'parking_id';
-    public $timestamps = false;
-
     protected $fillable = [
         'house_number',
-        'street_id'
+        'street_name',
+        'city_id'
     ];
 
-    public function street()
+    public function city()
     {
-        return $this->belongsTo(Street::class, 'street_id', 'street_id');
+        return $this->belongsTo(City::class, 'city_id', 'city_id');
     }
 
-    public function carInParkingLot()
+    public function carsInParkingLots()
     {
-        return $this->hasMany(CarInParkingLot::class, 'parking_id', 'parking_lot_id');
+        return $this->hasMany(CarInParkingLot::class, 'parking_id', 'parking_id');
     }
-
 }

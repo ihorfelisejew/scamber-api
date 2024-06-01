@@ -8,23 +8,21 @@ use Illuminate\Database\Eloquent\Model;
 class Worker extends Model
 {
     use HasFactory;
-
-    protected $table = 'Workers';
     protected $primaryKey = 'worker_id';
-    public $timestamps = false;
-
     protected $fillable = [
-        'name_of_worker',
+        'name',
         'last_name',
         'phone_number',
         'email',
-        'appointment_date',
         'date_of_birth',
+        'appointment_date',
         'position_id',
         'showroom_id',
         'login',
         'password'
     ];
+
+    protected $dates = ['date_of_birth', 'appointment_date'];
 
     public function position()
     {
@@ -33,15 +31,11 @@ class Worker extends Model
 
     public function showroom()
     {
-        return $this->belongsTo(CarShowroom::class, 'showroom_id', 'showroom_id');
+        return $this->belongsTo(Showroom::class, 'showroom_id', 'showroom_id');
     }
 
-    public function showroomDirector()
-    {
-        return $this->hasMany(CarShowroom::class, 'worker_id', 'director_id');
-    }
     public function managerForContract()
     {
-        return $this->hasMany(HistoryOfBuyingAndSellingCar::class, 'worker_id', 'manager_id');
+        return $this->hasMany(ContractOnCar::class, 'manager_id', 'worker_id');
     }
 }

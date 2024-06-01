@@ -8,17 +8,18 @@ use Illuminate\Database\Eloquent\Model;
 class City extends Model
 {
     use HasFactory;
-
-    protected $table = 'Cities';
     protected $primaryKey = 'city_id';
-    public $timestamps = false;
+    protected $table = 'cities';
 
-    protected $fillable = [
-        'city'
-    ];
+    protected $fillable = ['city_name'];
 
-    public function streetInCity()
+    public function showrooms()
     {
-        return $this->hasMany(Street::class, 'city_id', 'city_id');
+        return $this->hasMany(Showroom::class, 'city_id', 'city_id');
+    }
+
+    public function parkingLots()
+    {
+        return $this->hasMany(ParkingLot::class, 'city_id', 'city_id');
     }
 }

@@ -9,12 +9,9 @@ class Client extends Model
 {
     use HasFactory;
 
-    protected $table = 'Clients';
     protected $primaryKey = 'client_id';
-    public $timestamps = false;
-
     protected $fillable = [
-        'clients_name',
+        'name',
         'last_name',
         'phone_number',
         'email',
@@ -24,18 +21,21 @@ class Client extends Model
         'passport_number',
         'series',
         'date_of_issue',
-        'identification_code',
+        'identification_code'
     ];
+    protected $dates = ['date_of_birth', 'date_of_issue'];
 
-    public function clientForCars()
+    public function cars()
     {
         return $this->hasMany(Car::class, 'client_id', 'client_id');
     }
-    public function clientForContract()
+
+    public function contractsForClient()
     {
-        return $this->hasMany(HistoryOfBuyingAndSellingCar::class, 'client_id', 'client_id');
+        return $this->hasMany(ContractOnCar::class, 'client_id', 'client_id');
     }
-    public function clientForReview()
+
+    public function review()
     {
         return $this->hasMany(Review::class, 'client_id', 'client_id');
     }

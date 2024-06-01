@@ -9,21 +9,19 @@ class CarInShowroom extends Model
 {
     use HasFactory;
 
-    protected $table = 'CarsInShowroom';
-    protected $primaryKey = 'id';
-    public $timestamps = false;
-
+    protected $table = 'cars_in_showrooms';
     protected $fillable = [
         'car_id',
-        'showroom_id'
+        'showroom_id',
     ];
 
     public function car()
     {
         return $this->belongsTo(Car::class, 'car_id', 'car_id');
     }
+
     public function showroom()
     {
-        return $this->belongsTo(CarShowroom::class, 'showroom_id', 'showroom_id');
+        return $this->belongsTo(Showroom::class, 'showroom_id', 'showroom_id');
     }
 }

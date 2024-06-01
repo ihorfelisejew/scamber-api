@@ -5,20 +5,17 @@ namespace App\Models;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 
-class OrderProcessing extends Model
+class Order extends Model
 {
     use HasFactory;
 
-    protected $table = 'OrderProcessing';
     protected $primaryKey = 'order_id';
-    public $timestamps = false;
-
     protected $fillable = [
         'client_name',
         'client_last_name',
-        'client_contacts',
-        'order_detail',
+        'contacts',
+        'order_details',
         'acceptance_status',
-        'execution_status'
+        'execution_status',
     ];
 }

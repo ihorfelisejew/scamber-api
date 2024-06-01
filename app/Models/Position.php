@@ -8,16 +8,12 @@ use Illuminate\Database\Eloquent\Model;
 class Position extends Model
 {
     use HasFactory;
-
-    protected $table = 'Positions';
     protected $primaryKey = 'position_id';
-    public $timestamps = false;
-
     protected $fillable = [
-        'name_of_position'
+        'position_name'
     ];
 
-    public function positionForWorker()
+    public function worker()
     {
         return $this->hasMany(Worker::class, 'position_id', 'position_id');
     }

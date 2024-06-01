@@ -9,27 +9,21 @@ class Review extends Model
 {
     use HasFactory;
 
-    protected $table = 'Reviews';
     protected $primaryKey = 'review_id';
-    public $timestamps = false;
-
     protected $fillable = [
-        'client_id',
         'showroom_id',
+        'client_id',
         'content',
-        'rating_id'
+        'rating',
     ];
+
+    public function showroom()
+    {
+        return $this->belongsTo(Showroom::class, 'showroom_id', 'showroom_id');
+    }
 
     public function client()
     {
         return $this->belongsTo(Client::class, 'client_id', 'client_id');
-    }
-    public function showroom()
-    {
-        return $this->belongsTo(CarShowroom::class, 'showroom_id', 'showroom_id');
-    }
-    public function rating()
-    {
-        return $this->belongsTo(Rating::class, 'rating_id', 'rating_id');
     }
 }
