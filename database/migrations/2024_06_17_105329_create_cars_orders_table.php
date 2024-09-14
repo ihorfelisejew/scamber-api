@@ -10,14 +10,13 @@ return new class extends Migration {
      */
     public function up(): void
     {
-        Schema::create('orders', function (Blueprint $table) {
-            $table->bigIncrements('order_id');
+        Schema::create('cars_orders', function (Blueprint $table) {
+            $table->id();
             $table->string('client_name');
-            $table->string('client_last_name');
-            $table->string('contacts');
-            $table->string('order_details');
-            $table->integer('acceptance_status');
-            $table->string('execution_status');
+            $table->string('phone_number');
+            $table->foreignId('car_id');
+            $table->dateTime('date_of_event');
+            $table->foreign('car_id')->references('car_id')->on('cars')->onDelete('CASCADE')->onUpdate('CASCADE');
             $table->timestamp('created_at')->useCurrent();
             $table->timestamp('updated_at')->useCurrent()->useCurrentOnUpdate();
         });
@@ -28,6 +27,6 @@ return new class extends Migration {
      */
     public function down(): void
     {
-        Schema::dropIfExists('orders');
+        Schema::dropIfExists('cars_orders');
     }
 };

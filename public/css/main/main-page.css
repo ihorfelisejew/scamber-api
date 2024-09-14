@@ -1,0 +1,89 @@
+@import url("main-about.css");
+@import url("main-catalog.css");
+@import url("main-order-form.css");
+
+.main {
+    padding-top: 100px;
+}
+
+.main .main__content {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+}
+
+.main .main__content .main__info {
+    flex: 1 1 35%;
+    display: flex;
+    flex-direction: column;
+    gap: 35px;
+    padding-top: 35px;
+}
+
+.main .main__content .main__info .main__title {
+    font-size: 40px;
+    font-weight: 900;
+}
+
+.main .main__content .main__info .main__text {
+    font-size: 16px;
+    font-weight: 500;
+    line-height: 20px;
+    /* 125% */
+    letter-spacing: 0.16px;
+    max-width: 74%;
+}
+
+.main .main__content .main__info .main__button {
+    width: 260px;
+    padding: 20px;
+    text-align: center;
+    border-radius: 10px;
+    background: linear-gradient(92deg, #1b22cd 0%, #1b22d0 100%);
+    box-shadow: 0px 4px 35px 0px rgba(54, 61, 224, 0.25);
+    font-size: 18px;
+    font-style: normal;
+    font-weight: 700;
+    line-height: 30px;
+    /* 166.667% */
+    color: #fff;
+    transition: all 1s ease 0s;
+}
+
+.main .main__content .main__info .main__button:hover {
+    color: #1b22cd;
+    background: #fff;
+    border: 2px solid #1b22d0;
+}
+
+.main .main__content .main__image {
+    flex: 1 1 65%;
+    width: 100%;
+    margin-right: -180px;
+    margin-left: -105px;
+}
+
+.main .main__content .main__image img {
+    width: 100%;
+}
+
+.main .main__bg {
+    width: 1021.5px;
+    height: 790px;
+    position: absolute;
+    top: 0;
+    right: 0;
+    z-index: -1;
+    overflow: hidden;
+    margin-bottom: 100px;
+    box-shadow: 45px 10px 45px rgba(27, 34, 205, 0.75);
+}
+
+.main .main__bg .main__bg-content {
+    width: 150%;
+    height: 150%;
+    margin-left: 210px;
+    transform: rotate(24deg);
+    box-shadow: 5px 0px 50px rgba(27, 34, 205, 0.75);
+    background-color: #1b22cd;
+}

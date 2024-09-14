@@ -9,13 +9,20 @@ class Order extends Model
 {
     use HasFactory;
 
-    protected $primaryKey = 'order_id';
-    protected $fillable = [
+    public $primaryKey = 'order_id';
+    public $fillable = [
         'client_name',
         'client_last_name',
-        'contacts',
+        'phone_number',
         'order_details',
         'acceptance_status',
         'execution_status',
+        'email',
+        'low_price',
+        'high_price',
+        'min_year',
+        'max_year',
+        'manufacturer_id',
+        'car_model'
     ];
 }

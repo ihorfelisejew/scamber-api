@@ -1,0 +1,141 @@
+.order-form__section {
+    padding: 147px 0px 167px;
+    background-color: #f4f4ff;
+}
+
+.order__content {
+    background-color: #fff;
+    border: 1px solid #f4f4ff;
+    border-radius: 5px;
+    padding: 78px 71px;
+}
+
+.order__title {
+    font-size: 40px;
+    font-weight: 700;
+}
+
+.order__form {
+    margin-top: 40px;
+}
+
+.order-form__contacts {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    column-gap: 96px;
+    row-gap: 12px;
+    padding-bottom: 36px;
+    border-bottom: 1px solid #0b0b0b;
+}
+
+.order-form__contacts input {
+    padding: 20px;
+    font-size: 13px;
+    font-weight: 600;
+    border: 1px solid #0b0b0b;
+    border-radius: 5px;
+    background: rgb(255, 255, 255);
+}
+
+.order-form__contacts input::placeholder {
+    color: #0b0b0b;
+}
+
+.order-form__details {
+    display: flex;
+    gap: 96px;
+    justify-content: space-between;
+    padding-top: 36px;
+}
+
+.order-details__left {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+    width: 100%;
+}
+
+.order-details__right {
+    width: 100%;
+}
+
+.car-name__block {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 60px;
+    justify-content: space-between;
+}
+
+.car-name__block select,
+.car-name__block input {
+    font-size: 13px;
+    font-weight: 600;
+    padding: 20px;
+    border: 1px solid #0b0b0b;
+    border-radius: 5px;
+}
+
+.car-name__block input::placeholder {
+    color: #0b0b0b;
+}
+
+.numbers-output__title {
+    font-size: 14px;
+    margin-bottom: 5px;
+}
+
+.order__numbers-block {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 60px;
+}
+
+
+.order__numbers-output input {
+    font-size: 16px;
+    padding: 5px 10px;
+    border: 1px solid #0b0b0b;
+    border-radius: 5px;
+    width: 100px;
+}
+
+#order__comment {
+    display: block;
+    border: 1px solid #0b0b0b;
+    border-radius: 5px;
+    font-size: 13px;
+    font-weight: 600;
+    padding: 20px;
+    display: block;
+    width: 100%;
+    height: 100%;
+    resize: none;
+    outline: none;
+}
+
+#order__comment::placeholder {
+    color: #0b0b0b;
+}
+
+.order__submit {
+    font-weight: 600;
+    color: #fff;
+    padding: 20px;
+    border: 1px solid #000694;
+    border-radius: 5px;
+    background: #000694;
+    transition: all 0.5s ease;
+    width: 200px;
+    margin-top: 5px;
+}
+
+.order__submit:hover {
+    background-color: #fff;
+    color: #000694;
+}
+
+.order__success {
+    margin-top: 20px;
+    font-size: 18px;
+    font-weight: 500;
+}

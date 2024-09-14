@@ -4,11 +4,17 @@ namespace App\Models;
 
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
+use Illuminate\Contracts\Auth\Authenticatable as AuthenticatableContract;
+use Illuminate\Auth\Authenticatable;
+use Illuminate\Notifications\Notifiable;
+use Illuminate\Support\Facades\Auth;
 
-class Worker extends Model
+class Worker extends Model implements AuthenticatableContract
 {
-    use HasFactory;
+    use HasFactory, Authenticatable, Notifiable;
+
     protected $primaryKey = 'worker_id';
+
     protected $fillable = [
         'name',
         'last_name',
@@ -19,7 +25,8 @@ class Worker extends Model
         'position_id',
         'showroom_id',
         'login',
-        'password'
+        'password',
+        'remember_token'
     ];
 
     protected $dates = ['date_of_birth', 'appointment_date'];
@@ -37,5 +44,15 @@ class Worker extends Model
     public function managerForContract()
     {
         return $this->hasMany(ContractOnCar::class, 'manager_id', 'worker_id');
+    }
+
+    public function isClient()
+    {
+        return false;
+    }
+
+    public function isAdmin()
+    {
+        return true;
     }
 }

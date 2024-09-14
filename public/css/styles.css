@@ -1,0 +1,64 @@
+@import url("reset.css");
+@import url("header.css");
+@import url("main/main-page.css");
+@import url("footer.css");
+@import url("catalog-item.css");
+@import url("catalog/catalog-page.css");
+@import url("catalog/car-details.css");
+@import url("modal.css");
+
+/*-------dashboard---------*/
+@import url('dashboard/dashboard.css');
+@import url('dashboard/sign-in.css');
+
+body {
+    font-family: "Montserrat", sans-serif;
+    font-weight: 400;
+    font-size: 18px;
+    color: #0b0b0b;
+}
+
+.wrapper {
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+    overflow: hidden;
+}
+
+[class*=__container] {
+    max-width: 1380px;
+    margin: 0 auto;
+    padding: 0 15px;
+}
+
+@media (max-width: 1439.98px) {
+    [class*=__container] {
+        max-width: 1280px;
+    }
+}
+
+@media (max-width: 1280px) {
+    [class*=__container] {
+        max-width: 1120px;
+    }
+}
+
+@media (max-width: 1120px) {
+    [class*=__container] {
+        max-width: 960px;
+    }
+}
+
+@media (max-width: 767.98px) {
+    [class*=__container] {
+        padding: 0 15px;
+        max-width: 100%;
+    }
+}
+
+.title {
+    color: #0b0b0b;
+    font-family: Roboto, serif;
+    font-size: 40px;
+    font-weight: 600;
+}

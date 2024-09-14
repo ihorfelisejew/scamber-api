@@ -13,6 +13,7 @@ class Car extends Model
     protected $fillable = [
         'manufacturer_id',
         'model',
+        'complete_set',
         'year_of_manufacture',
         'price',
         'car_mileage',
@@ -25,6 +26,7 @@ class Car extends Model
         'VIN_code',
         'color',
         'other_desc',
+        'photo_url',
         'client_id',
         'offered_for_sale'
     ];
@@ -52,5 +54,15 @@ class Car extends Model
     public function contractsOnCar()
     {
         return $this->hasMany(ContractOnCar::class, 'car_id', 'car_id');
+    }
+
+    public function testDriveCar()
+    {
+        return $this->hasMany(TestDrive::class, 'car_id', 'car_id');
+    }
+
+    public function orderDriveCar()
+    {
+        return $this->hasMany(CarOrder::class, 'car_id', 'car_id');
     }
 }
